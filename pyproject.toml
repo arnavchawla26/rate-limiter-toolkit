@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rate-limiter-toolkit"
+version = "0.1.0"
+description = "Dependency-free implementations of the standard rate-limiting algorithms, plus an HTTP middleware demo and a load-test simulator."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Arnav Chawla" }]
+keywords = ["rate-limiting", "token-bucket", "leaky-bucket", "sliding-window", "throttling"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: System :: Networking",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+ratelimit-sim = "ratelimiter.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
